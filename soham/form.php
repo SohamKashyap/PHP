@@ -119,6 +119,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="password" class="form-control" id="pass" name="pass">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
+  <style>
+  .btn-secondary a {
+    text-decoration: none;
+    color: inherit; /* Keeps the link color same as button text color */
+  }
+</style>
+
+<button type="view" class="btn btn-secondary"><a href="view.php">View Data</a></button>
+
 </form>
 </div>
 
