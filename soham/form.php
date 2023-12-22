@@ -48,6 +48,11 @@
   </div>
 </nav>
 
+
+<?php
+
+?>
+
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email']; // Assign the value of 'email' field to $email variable
@@ -65,6 +70,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <strong>Your Email and Password have been submitted successfully!</strong>  
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['pass'])) {
+          $email = $_POST['email']; 
+          $password = $_POST['pass'];
+          
+          $conn = new mysqli('localhost', 'root', '', 'form');
+          if ($conn->connect_error) {
+              die('Connection Error: ' . $conn->connect_error);
+          } else {
+              $stmt = $conn->prepare("INSERT INTO registraction(email, password) VALUES(?, ?)");
+              $stmt->bind_param("ss", $email, $password);
+              if ($stmt->execute()) {
+                  echo "Registration Successful";
+              } else {
+                  echo "Error: " . $conn->error;
+              }
+              $stmt->close();
+              $conn->close();
+          }
+      }
     }
 } else {
     // Redirect or display an error message if accessed directly without submission
@@ -72,19 +96,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <strong>Please Enter Email and Passoword to store in database!</strong>  
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
-}
-?>
-<!-- JavaScript to remove the alert after 3seconds -->
-<script>
-    setTimeout(function() {
-        document.getElementById('alertMsg').style.display = 'none';
-    }, 3000); // 3000 milliseconds = 3 seconds
-</script>
+  }
+  ?>
+  <!-- JavaScript to remove the alert after 3seconds -->
+  <script>
+      setTimeout(function() {
+          document.getElementById('alertMsg').style.display = 'none';
+      }, 3000); // 3000 milliseconds = 3 seconds
+  </script>
 
 
 <div class="container mt-4">
     <h1> Enter Your Email and Passoword </h1>
-<form action="/soham/form.php"  method="post">
+<form action="/soham/form.php"  method="post" >
   <div class="mb-3">
     <label for="email" class="form-label">Email address</label>
     <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
@@ -97,5 +121,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+
   </body>
 </html>
