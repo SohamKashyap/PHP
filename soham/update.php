@@ -6,53 +6,65 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-
-<h1>User Data</h1>
- &nbsp; <a href="form.php" class="btn btn-primary">Home</a>
-<table border="1px" cellpadding="10px" cellspacing="0">
-    <tr>
-        <th>Email</th>
-        <th>Password</th>
-        <th colspan="2">Action</th>
-    </tr>
     <?php
-    // Database connection parameters
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "form";
 
-    // Create connection
     $con = mysqli_connect($servername, $username, $password, $dbname);
 
-    // Check connection
-    if (!$con) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+    $id = $_GET['id'];
+    $select = "SELECT * FROM registraction WHERE id='$id'";
+    $data = mysqli_query($con, $select);
+    $row = mysqli_fetch_array($data);
+    ?>
+    <div class="container mt-4">
+        <h1>Now Please Edit Your Email or Password</h1>
+        <form method="post">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" value="<?php echo $row['Email']; ?>">
+            </div>
+            <div class="mb-3">
+                <label for="pass" class="form-label">Password</label>
+                <input type="password" class="form-control" id="pass" name="pass" value="<?php echo $row['Password']; ?>">
+            </div>
+            <button type="submit" name="update_btn" class="btn btn-primary">Update</button>
+            <style>
+            .btn-secondary a {
+                text-decoration: none;
+                color: inherit; /* Keeps the link color same as button text color */
+            }
+              </style>
+            <button type="button" class="btn btn-secondary"><a href="view.php">Back</a></button>
+        </form>
+    </div>
 
-    // Fetch data from database
-    $query = "SELECT * FROM registraction";
-    $data = mysqli_query($con, $query);
+    <?php
+    if (isset($_POST['update_btn'])) {
+        $email = $_POST['email'];
+        $password = $_POST['pass'];
 
-    if (mysqli_num_rows($data) > 0) {
-        // Output data of each row
-        while ($row = mysqli_fetch_assoc($data)) {
-            echo "<tr>
-                    <td>" . $row["Email"] . "</td>
-                    <td>" . $row["Password"] . "</td>
-                    <td><a href='update.php?id=" . $row["ID"] . "'>Edit</a></td>
-                    <td><a onclick=\"return confirm('Are you sure, you want to delete this data?')\" href='delete.php?id=" . $row["ID"] . "'>Delete</a></td>
-                  </tr>";
+        if (!$con) {
+            die('Connection Error: ' . mysqli_connect_error());
+        } else {
+            $update = "UPDATE registraction SET Email='$email', Password='$password' WHERE id='$id'";
+            $data = mysqli_query($con, $update);
+
+            if ($data) {
+                ?>
+                <script type="text/javascript">
+                    alert("Data Updated Successfully");
+                    window.open("http://localhost/soham/view.php","_self");
+                    </script>
+                    <?php
+            } else {
+                echo "Error: " . mysqli_error($con);
+            }
+            mysqli_close($con); // Close the connection after the operation
         }
-    } else {
-        echo "<tr><td colspan='4'>No records found</td></tr>";
     }
-
-    // Close the database connection
-    mysqli_close($con);
-?>
-
-</table>
-
+    ?>
 </body>
 </html>
