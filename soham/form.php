@@ -48,11 +48,6 @@
   </div>
 </nav>
 
-
-<?php
-
-?>
-
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email']; // Assign the value of 'email' field to $email variable
