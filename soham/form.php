@@ -66,10 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>';
     } else {
         // Display a success message if both email and password are provided
-        echo '<div id="alertMsg" class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Your Email and Password have been submitted successfully!</strong>  
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['pass'])) {
           $email = $_POST['email']; 
           $password = $_POST['pass'];
@@ -81,7 +77,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $stmt = $conn->prepare("INSERT INTO registraction(email, password) VALUES(?, ?)");
               $stmt->bind_param("ss", $email, $password);
               if ($stmt->execute()) {
-                  echo "Registration Successful";
+                echo '<div id="alertMsg" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Your Email and Password have been submitted successfully!</strong>  
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
               } else {
                   echo "Error: " . $conn->error;
               }
@@ -124,12 +123,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     text-decoration: none;
     color: inherit; /* Keeps the link color same as button text color */
   }
-</style>
+   </style>
 
-<button type="view" class="btn btn-secondary"><a href="view.php">View Data</a></button>
+   <button type="view" class="btn btn-secondary"><a href="view.php">View Data</a></button>
 
 </form>
 </div>
-
   </body>
 </html>
