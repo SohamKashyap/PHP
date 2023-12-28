@@ -49,7 +49,10 @@
         if (!$con) {
             die('Connection Error: ' . mysqli_connect_error());
         } else {
-            $update = "UPDATE registraction SET Email='$email', Password='$password' WHERE id='$id'";
+            // Hash the password before updating
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            $update = "UPDATE registraction SET Email='$email', Password='$hashed_password' WHERE id='$id'";
             $data = mysqli_query($con, $update);
 
             if ($data) {
