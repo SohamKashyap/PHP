@@ -20,10 +20,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/soham/form.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="/soham/form.php">Sign Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="/soham/login.php">Login</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,80 +49,73 @@
 </nav>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email']; // Assign the value of 'email' field to $email variable
-    $password = $_POST['pass']; // Assign the value of 'pass' field to $password variable
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST['email'];
+        $password = $_POST['pass'];
 
-    // Check if both email and password are empty
-    if (empty($email) || empty($password)) {
-        echo '<div id="alertMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Enter both Email and password!</strong>  
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
+        if (empty($email) || empty($password)) {
+            echo '<div id="alertMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Enter both Email and password!</strong>  
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+        } else {
+            $conn = new mysqli('localhost', 'root', '', 'form');
+            if ($conn->connect_error) {
+                die('Connection Error: ' . $conn->connect_error);
+            } else {
+                // Hash the password using bcrypt
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+                $stmt = $conn->prepare("INSERT INTO registraction(email, password) VALUES(?, ?)");
+                $stmt->bind_param("ss", $email, $hashed_password);
+                if ($stmt->execute()) {
+                    echo '<div id="alertMsg" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Your Email and Password have been submitted successfully!</strong>  
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                } else {
+                    echo "Error: " . $conn->error;
+                }
+                $stmt->close();
+                $conn->close();
+            }
+        }
     } else {
-        // Display a success message if both email and password are provided
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['pass'])) {
-          $email = $_POST['email']; 
-          $password = $_POST['pass'];
-          
-          $conn = new mysqli('localhost', 'root', '', 'form');
-          if ($conn->connect_error) {
-              die('Connection Error: ' . $conn->connect_error);
-          } else {
-              $stmt = $conn->prepare("INSERT INTO registraction(email, password) VALUES(?, ?)");
-              $stmt->bind_param("ss", $email, $password);
-              if ($stmt->execute()) {
-                echo '<div id="alertMsg" class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Your Email and Password have been submitted successfully!</strong>  
+        echo '<div id="alertMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Please Enter Email and Password to store in database!</strong>  
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
-              } else {
-                  echo "Error: " . $conn->error;
-              }
-              $stmt->close();
-              $conn->close();
-          }
-      }
     }
-} else {
-    // Redirect or display an error message if accessed directly without submission
-    echo '<div id="alertMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Please Enter Email and Passoword to store in database!</strong>  
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
-  }
-  ?>
-  <!-- JavaScript to remove the alert after 3seconds -->
-  <script>
-      setTimeout(function() {
-          document.getElementById('alertMsg').style.display = 'none';
-      }, 3000); // 3000 milliseconds = 3 seconds
-  </script>
+    ?>
+    <!-- JavaScript to remove the alert after 4 seconds -->
+    <script>
+        setTimeout(function() {
+            document.getElementById('alertMsg').style.display = 'none';
+        }, 4000); // 4000 milliseconds = 4 seconds
+    </script>
 
-
-<div class="container mt-4">
-    <h1> Enter Your Email and Passoword </h1>
-<form action="/soham/form.php"  method="post" >
-  <div class="mb-3">
-    <label for="email" class="form-label">Email address</label>
-    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="pass" class="form-label">Password</label>
-    <input type="password" class="form-control" id="pass" name="pass">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <style>
-  .btn-secondary a {
-    text-decoration: none;
-    color: inherit; /* Keeps the link color same as button text color */
-  }
-   </style>
-
-   <button type="view" class="btn btn-secondary"><a href="view.php">View Data</a></button>
-
-</form>
-</div>
-  </body>
+    <div class="container mt-4">
+        <h1> Enter Your Email and Password for Sign Up </h1>
+        <form action="/soham/form.php" method="post">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="pass" class="form-label">Password</label>
+                <input type="password" class="form-control" id="pass" name="pass">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <style>
+                .btn-secondary a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+            </style>
+            <button type="view" class="btn btn-secondary"><a href="view.php">View Data</a></button>
+            <a href="login.php" class="btn btn-success" role="button">Log In</a>
+        </form>
+    </div>
+</body>
 </html>
