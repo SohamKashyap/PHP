@@ -30,7 +30,7 @@
                 <label for="pass" class="form-label">Password</label>
                 <input type="password" class="form-control" id="pass" name="pass" value="<?php echo $row['Password']; ?>">
             </div>
-            <button type="submit" name="update_btn" class="btn btn-primary">Update</button>
+            <button type="button" name="update_btn" class="btn btn-danger">Update Data</button>
             <style>
             .btn-secondary a {
                 text-decoration: none;
