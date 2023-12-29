@@ -91,7 +91,7 @@
     <script>
         setTimeout(function() {
             document.getElementById('alertMsg').style.display = 'none';
-        }, 4000); // 4000 milliseconds = 4 seconds
+        }, 5000); // 5000 milliseconds = 5 seconds
     </script>
 
     <div class="container mt-4">
