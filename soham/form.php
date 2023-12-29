@@ -1,17 +1,52 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
-  <body>
+    <style>
+        /* Navbar style adjustments */
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
 
+        /* Enhance form appearance */
+        .container {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
+        .btn-secondary a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        /* Customize form inputs */
+        input[type="email"],
+        input[type="password"] {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Store Information</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,8 +82,18 @@
     </div>
   </div>
 </nav>
-
-<?php
+<div class="container mt-4">
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #007bff; /* Blue color */
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 1px #ccc; /* Adds a subtle shadow effect */
+        }
+    </style>
+        <h1> Sign Up </h1>
+        <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $password = $_POST['pass'];
@@ -87,15 +132,6 @@
             </div>';
     }
     ?>
-    <!-- JavaScript to remove the alert after 4 seconds -->
-    <script>
-        setTimeout(function() {
-            document.getElementById('alertMsg').style.display = 'none';
-        }, 5000); // 5000 milliseconds = 5 seconds
-    </script>
-
-    <div class="container mt-4">
-        <h1> Enter Your Email and Password for Sign Up </h1>
         <form action="/soham/form.php" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
