@@ -106,14 +106,14 @@
                 <label for="pass" class="form-label">Password</label>
                 <input type="password" class="form-control" id="pass" name="pass">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Register</button>
             <style>
                 .btn-secondary a {
                     text-decoration: none;
                     color: inherit;
                 }
             </style>
-            <button type="view" class="btn btn-secondary"><a href="view.php">View Data</a></button>
+            <button type="button" class="btn btn-secondary"><a href="view.php">View Data</a></button>
             <a href="login.php" class="btn btn-success" role="button">Log In</a>
         </form>
     </div>
