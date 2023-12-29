@@ -4,17 +4,53 @@
     <meta charset="UTF-8">
     <title>User Data</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+            padding: 20px; /* Add some padding */
+        }
+        h1 {
+            color: #008000; /* Green title color */
+            margin-bottom: 20px; '/* Space at the bottom of the heading */
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            background-color: #fff; /* White background for the table */
+            border-collapse: collapse;
+            margin-top: 20px; /* Space at the top of the table */
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #dee2e6; /* Light gray border */
+        }
+        th {
+            background-color: #008000; /* Green header background color */
+            color: #fff; /* White header text color */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate row color */
+        }
+        .btn-primary {
+            margin-top: 20px; /* Space at the top of the Home button */
+        }
+    </style>
 </head>
 <body>
 
-<h1>User Data</h1>
- &nbsp; <a href="form.php" class="btn btn-primary">Home</a>
-<table border="1px" cellpadding="10px" cellspacing="0">
-    <tr>
-        <th>Email</th>
-        <th>Password</th>
-        <th colspan="2">Action</th>
-    </tr>
+<h1 class="text-center">User Data</h1>
+<a href="form.php" class="btn btn-primary">Home</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Email</th>
+            <th>Password</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
     <?php
     // Database connection parameters
     $servername = "localhost";
@@ -52,6 +88,7 @@
     mysqli_close($con);
 ?>
 
+</tbody>
 </table>
 
 </body>
