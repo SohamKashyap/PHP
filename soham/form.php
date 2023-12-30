@@ -6,18 +6,13 @@
     <title>Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        /* Navbar style adjustments */
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
 
         /* Enhance form appearance */
         .container {
-            background-color: #f7f7f7;
+            background-color: transparent; /* Make the container transparent */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: none; /* Remove the box shadow */
         }
 
         .btn-secondary a {
@@ -32,6 +27,7 @@
             border-radius: 5px;
             padding: 10px;
             margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.5); /* Add some opacity to the input background */
         }
 
         /* Button styling */
@@ -43,57 +39,129 @@
         .btn-primary:hover {
             background-color: #0056b3;
         }
+        </style>
+</head>
+
+        <style>
+                /* Add background image */
+                        body {
+                background-image: url('https://r4.wallpaperflare.com/wallpaper/621/301/89/macos-mojave-night-wallpaper-33048d6dbcf8413fb105175654ac0812.jpg');
+                background-size: cover;
+                background-attachment: fixed;
+                color: #333;
+    }
+
+                /* Make the form slightly transparent */
+                .container {
+        background-color: rgba(247, 247, 247, 0); /* Transparent background */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+        color: #fff; /* White text color */
+    }
+
+            </style>
+
+
+<style>
+        /* Reset some default browser styles */
+        body, h1, h2, h3, h4, h5, h6, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar styles */
+        .navbar {
+        background-color: #000; /* Change to black */
+        color: #fff;
+    }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+            .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: underline;
+            /* Additional styling */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s ease-in-out;
+            /* Example color and underline style */
+            color: #fff;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links li a:hover {
+            color: #ffcc00;
+        }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Store Information</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/soham/form.php">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/soham/login.php">Login</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+<nav class="navbar">
+    <div class="container">
+        <h1 class="logo">MCA</h1>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="view.php">View Data</a></li>
+        </ul>
     </div>
-  </div>
 </nav>
-<div class="container mt-4">
-    <style>
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #007bff; /* Blue color */
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 1px #ccc; /* Adds a subtle shadow effect */
+<style>
+        /* Rest of your styles */
+
+        /* Custom styling for the alert message */
+        .alert {
+            position: relative;
+            padding: 1rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            opacity: 0.9; /* Adjust opacity to make it transparent */
+            color: #fff; /* Text color */
+            border: 1px solid transparent; /* Remove border */
+        }
+
+        /* Danger alert style */
+        .alert-danger {
+            background-color: rgba(255, 0, 0, 0.5); /* Red semi-transparent background */
+        }
+
+        /* Success alert style */
+        .alert-success {
+            background-color: rgba(0, 128, 0, 0.5); /* Green semi-transparent background */
+        }
+
+        /* Close button */
+        .btn-close {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Hover effect for close button */
+        .btn-close:hover {
+            color: inherit;
         }
     </style>
-        <h1> Sign Up </h1>
-        <?php
+<?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $password = $_POST['pass'];
@@ -132,25 +200,46 @@
             </div>';
     }
     ?>
+
+<div class="container mt-4">
+<style>
+        /* Style for the container */
+        .signup-box {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            background: linear-gradient(45deg, #007bff, #00ffcc); /* Gradient background */
+            opacity: 0.7; /* Adjust opacity */
+        }
+
+        /* Style for the text */
+        .signup-text {
+            font-size: 3rem;
+            color: #fff; /* White color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 0; /* Remove default margin */
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-box">
+        <h1 class="signup-text">Sign Up</h1>
+    </div>
+   
         <form action="/soham/form.php" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
                 <label for="pass" class="form-label">Password</label>
                 <input type="password" class="form-control" id="pass" name="pass">
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
-            <style>
-                .btn-secondary a {
-                    text-decoration: none;
-                    color: inherit;
-                }
-            </style>
-            <button type="button" class="btn btn-secondary"><a href="view.php">View Data</a></button>
+
             <a href="login.php" class="btn btn-success" role="button">Log In</a>
+            
         </form>
     </div>
 </body>
