@@ -110,13 +110,23 @@
         .nav-links li a:hover {
             color: #ffcc00;
         }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            max-width: 60px;
+            margin-right: 20px;
+        }
     </style>
 </head>
 <body>
 
 <nav class="navbar">
     <div class="container">
-        <h1 class="logo">MCA</h1>
+    <img src="https://imgs.search.brave.com/a5cRiBKwRSjeiA5UCyXmaQtgDCMejbNFfLkme3_-1X8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9ndW1s/ZXQuYXNzZXR0eXBl/LmNvbS9mcmVlcHJl/c3Nqb3VybmFsLzIw/MjItMDUvOTEyODg5/MjUtOTIzNi00ZmY2/LThmOTUtMzEzZmVm/MzBlYTM4L0xvZ29T/UFUucG5n" alt="Logo" class="logo-img">
+        <h1 class="logo">Sardar Patel University, Mandi(MCA)</h1>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
