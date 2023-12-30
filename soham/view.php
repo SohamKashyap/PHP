@@ -37,7 +37,25 @@
         }
     </style>
 </head>
+
+<style>
+        /* Add background image */
+        body {
+            background-image: url('https://r4.wallpaperflare.com/wallpaper/142/751/831/landscape-anime-digital-art-fantasy-art-wallpaper-9b468c3dc3116f4905f43bc9cddc0cf0.jpg'); /* Replace 'path_to_your_image.jpg' with the URL or path to your image */
+            background-size: cover; /* Cover the entire viewport */
+            background-attachment: fixed; /* Fix the background image */
+            color: #333; /* Text color */
+        }
+    </style>
 <body>
+<style>
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: #fff; /* White color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 
 <h1 class="text-center">User Data</h1>
 <a href="form.php" class="btn btn-primary">Home</a>
