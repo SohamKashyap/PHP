@@ -6,89 +6,24 @@
     <title>login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-
-        /* Enhance form appearance */
-        .container {
-            background-color: transparent; /* Make the container transparent */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: none; /* Remove the box shadow */
-        }
-
-        .btn-secondary a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Customize form inputs */
-        input[type="email"],
-        input[type="password"] {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 15px;
-            background-color: rgba(255, 255, 255, 0.5); /* Add some opacity to the input background */
-            color: #fff; /* Set text color to white */
-        }
-
-        /* Button styling */
-        .btn-primary {
-            background-color: #007bff;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-
-        /* Set text color for headings */
-        h1 {
-            text-align: center;
-            font-size: 3rem;
-            color: #fff; /* White color */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Set text color for form labels */
-        label {
-            color: #fff; /* Set label text color to white */
-        }
-    </style>
-<style>
-        /* Reset some default browser styles */
-        body, h1, h2, h3, h4, h5, h6, ul, li {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Navbar styles */
-        .navbar {
-        background-color: #000; /* Change to black */
-        color: #fff;
-    }
-
-        .container {
+         .navbar {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: underline;
-            /* Additional styling */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            transition: color 0.3s ease-in-out;
-            /* Example color and underline style */
-            color: #fff;
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links li {
-            display: inline-block;
             margin-right: 20px;
         }
 
@@ -101,34 +36,64 @@
         .nav-links li a:hover {
             color: #ffcc00;
         }
-    </style>
-</head>
-<style>
-        /* Add background image */
-        body {
-            background-image: url('https://r4.wallpaperflare.com/wallpaper/683/186/563/macos-mojave-day-wallpaper-13a4fdadfc0811bfe145278604fcd852.jpg'); /* Replace 'path_to_your_image.jpg' with the URL or path to your image */
-            background-size: cover; /* Cover the entire viewport */
-            background-attachment: fixed; /* Fix the background image */
-            color: #333; /* Text color */
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
 
         .logo-img {
-            max-width: 60px;
-            margin-right: 20px;
+            max-width: 150px;
+            height: auto;
         }
-        
+
+        .container {
+            padding: 20px;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        /* Custom styling for the alert message */
+        .alert {
+            position: relative;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            opacity: 0.9;
+            color: #fff;
+            border: 1px solid transparent;
+        }
+
+
+        .btn-close {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .btn-close:hover {
+            color: inherit;
+        }
+
+        /* Signup box styles */
+        .signup-box {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #007bff, #00ffcc);
+            opacity: 0.7;
+        }
+
+        .signup-text {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 0;
+        }
     </style>
+
+</head>
 <body>
 <nav class="navbar">
     <div class="container">
-    <img src="https://imgs.search.brave.com/a5cRiBKwRSjeiA5UCyXmaQtgDCMejbNFfLkme3_-1X8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9ndW1s/ZXQuYXNzZXR0eXBl/LmNvbS9mcmVlcHJl/c3Nqb3VybmFsLzIw/MjItMDUvOTEyODg5/MjUtOTIzNi00ZmY2/LThmOTUtMzEzZmVm/MzBlYTM4L0xvZ29T/UFUucG5n" alt="Logo" class="logo-img">
-        <h1 class="logo">Sardar Patel University, Mandi(MCA)</h1>
+    <img src="local-nest-high-resolution-logo-white-transparent.png" alt="Logo" class="logo-img">
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="main.php">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
@@ -220,34 +185,51 @@
               <strong>Enter Your Email and Password to Log In!</strong>  
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
-  }
+     }
     ?>
 
-<div class="container mt-4">
 <style>
-        /* Style for the container */
-        .signup-box {
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
-            background: linear-gradient(45deg, #007bff, #00ffcc); /* Gradient background */
-            opacity: 0.6; /* Adjust opacity */
+        body {
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Style for the text */
-        .signup-text {
-            font-size: 3rem;
-            color: #fff; /* White color */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            margin: 0; /* Remove default margin */
+        .sign-up-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            padding: 50px 15px;
+            color: #000;
+        }
+
+        .sign-up-logo img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Updated styles for buttons */
+        .btn-primary,
+        .btn-success {
+            margin-top: 10px;
+            width: calc(50% - 5px); /* Equal width for both buttons with a slight margin */
         }
     </style>
-</head>
 <body>
-    <div class="signup-box">
-        <h1 class="signup-text">Log In</h1>
-    </div>
+<div class="sign-up-container">
+        <div class="sign-up-logo">
+            <img src="log-in-high-resolution-logo-transparent.png" alt="Sign Up">
+        </div>
    
     <form action="/soham/login.php" method="post">
         <div class="mb-3">
@@ -258,11 +240,12 @@
             <label for="pass" class="form-label">Password</label>
             <input type="password" class="form-control" id="pass" name="pass">
         </div>
+        <div class="d-flex justify-content-between">
         <button type="submit" class="btn btn-success">Log In</button>
         <a href="/soham/form.php" class="btn btn-primary">Sign Up</a>
+            </div>
     </form>
-
-    
 </div>
 </body>
 </html>
+
